@@ -1,8 +1,8 @@
-let wins, losses, ties = 0;
+let wins = 0, losses = 0, ties = 0;
 function getComputerChoice() {
     let choice, number;
 
-    number = Math.floor(Math.random() * 2) + 1;
+    number = Math.floor(Math.random() * 3) + 1;
     switch (number) {
         case 1:
             choice = "rock";
@@ -19,31 +19,37 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
-    if (playerSelection != computerSelection) {
+    if (playerSelection !== computerSelection) {
         switch (computerSelection) {
             case "rock":
-                if (playerSelection == "paper") {
+                if (playerSelection === "paper") {
                     wins++;
                     console.log("You won, Paper beats Rock!");
+                    break;
                 } else {
                     losses++;
                     console.log("You lost, Scissors beats Paper!");
+                    break;
                 }
             case "paper":
-                if (playerSelection == "scissors") {
+                if (playerSelection === "scissors") {
                     wins++;
                     console.log("You won, Scissors beats Paper!");
+                    break;
                 } else {
                     losses++;
                     console.log("You lost, Paper beats Rock!");
+                    break;
                 }
             case "scissors":
-                if (playerSelection == "rock") {
+                if (playerSelection === "rock") {
                     wins++;
                     console.log("You won, Rock beats Scissors!");
+                    break;
                 } else {
                     losses++;
                     console.log("You lost, Scissors beats Paper!");
+                    break;
                 }
         }
     } else {
